@@ -23,3 +23,4 @@ dependencyResolutionManagement {
 rootProject.name = "Plantain"
 
 include(":app")
+include(":plantain_opengl")

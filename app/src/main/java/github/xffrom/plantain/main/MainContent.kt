@@ -5,11 +5,15 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.viewinterop.AndroidView
 import com.slack.circuit.codegen.annotations.CircuitInject
 import dagger.hilt.android.components.ActivityComponent
+import github.xffrom.plantain.MyGLSurfaceView
 
 @Composable
 @CircuitInject(MainScreen::class, ActivityComponent::class)
 internal fun MainContent(state: MainScreen.State, modifier: Modifier) {
-  Box(modifier = modifier.fillMaxSize()) { Text(text = "Hello, ${state.name}!") }
+    AndroidView(modifier = modifier.fillMaxSize(), factory = {
+        MyGLSurfaceView(it).apply {}
+    })
 }
